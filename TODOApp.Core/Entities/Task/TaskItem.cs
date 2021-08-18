@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TODOApp.Core.Entities
 {
-    public class Task
+    public class TaskItem
     {
         /// <summary>
         /// Uniquely Identifies a Task in System
@@ -12,8 +12,8 @@ namespace TODOApp.Core.Entities
         public Int32 TaskId { get; set; }
 
         /// <summary>
-        /// Represent the Description 
+        /// Represent the task title 
         /// </summary>
-        public string Description { get; set; }
+        public string Title { get; set; }
     }
 }

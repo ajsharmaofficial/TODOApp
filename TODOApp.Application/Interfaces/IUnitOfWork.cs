@@ -8,7 +8,6 @@ namespace TODOApp.Application.Interfaces
 {
     public interface IUnitOfWork
     {
-        
-
+        public ITaskRepository TaskRepository { get; }
     }
 }

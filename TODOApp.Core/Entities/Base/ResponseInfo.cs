@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TODOApp.Core.Entities.Base
 {
-    public class ResponseInfo<T> where T : class
+    public class ResponseInfo<T>
     {
         public string ResponseCode { get; set; }
 
