@@ -33,6 +33,16 @@ namespace TODOApp
                 options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
             });
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CORSPolicy",
+                    builder => builder
+                    .SetIsOriginAllowed(_ => true)
+                   
+                    .AllowAnyMethod()
+                    .AllowAnyHeader().AllowCredentials());
+            });
+
             #region ApplicationKeys Setup
             services.Configure<ApplicationKeys>(Configuration.GetSection("ApplicationKeys"));
             #endregion
@@ -51,9 +61,9 @@ namespace TODOApp
             }
 
             app.UseHttpsRedirection();
-
+            app.UseCors("CORSPolicy");
             app.UseRouting();
-
+           
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
