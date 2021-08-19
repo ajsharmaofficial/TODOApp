@@ -30,9 +30,21 @@ namespace TODOApp.WebAPI.Controllers
         /// <returns>List of taskItem wrapped inside responseinfo</returns>
         // GET: api/<TaskController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async Task<ActionResult> Get()
         {
-            return new string[] { "value1", "value2" };
+            ResponseInfo<IEnumerable<TaskItem>> response;
+            try
+            {
+                response = await _unitOfWork.TaskRepository.GetAllAsync();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            return Ok(response);
         }
 
         // GET api/<TaskController>/5
@@ -50,10 +62,10 @@ namespace TODOApp.WebAPI.Controllers
         [HttpPost]
         public async Task<ActionResult> Post([FromBody] TaskItem taskItem)
         {
-            var response = new ResponseInfo<int>();
+            ResponseInfo<int> response;
             try
             {
-                 response = await _unitOfWork.TaskRepository.Add(taskItem);
+                response = await _unitOfWork.TaskRepository.AddAsync(taskItem);
 
             }
             catch (Exception)

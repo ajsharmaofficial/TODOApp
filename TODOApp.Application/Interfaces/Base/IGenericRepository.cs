@@ -13,6 +13,12 @@ namespace TODOApp.Application.Base
         /// </summary>
         /// <param name="entity"> entity</param>
         /// <returns>ResponseInfo with transcation status</returns>
-        Task<ResponseInfo<Int32>> Add(T entity);
+        Task<ResponseInfo<Int32>> AddAsync(T entity);
+
+        /// <summary>
+        /// Returns all the tasks present in the system
+        /// </summary>
+        /// <returns></returns>
+        Task<ResponseInfo<IEnumerable<T>>> GetAllAsync();
     }
 }

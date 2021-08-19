@@ -6,11 +6,11 @@ namespace TODOApp.Core.Entities.Base
 {
     public class ResponseInfo<T>
     {
-        public string ResponseCode { get; set; }
+        public bool ResponseStatus { get; set; }
 
         public string ResponseMessage  { get; set; }
 
-        public List<T> Data { get; set; }
+        public T Data { get; set; }
         
     }
 }

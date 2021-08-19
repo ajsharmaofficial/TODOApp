@@ -15,5 +15,24 @@ namespace TODOApp.Core.Entities
         /// Represent the task title 
         /// </summary>
         public string Title { get; set; }
+
+
+        public TaskStatus TaskStatus { get; set; }
+
+        /// <summary>
+        /// Represent the time when task was created
+        /// </summary>
+        public DateTime CreatedAt { get; set; }
+
+        /// <summary>
+        /// Last Updated time
+        /// </summary>
+        public DateTime LastUpdatedAt { get; set; }
+    }
+
+    public enum TaskStatus
+    {
+        PENDING,
+        COMPLETED
     }
 }
